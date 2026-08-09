@@ -1,0 +1,36 @@
+[
+  {
+    "date": "2026-06-27",
+    "pairLabel": "2026-06-27 〜 2026-07-04",
+    "status": "done",
+    "coherenceLevel": "medium",
+    "coherenceValue": 0.55,
+    "summary": "サンプルデータです。実際の変動量要約はSNAP解析後に手動で反映します。",
+    "imageUrl": "data/images/2026-06-27_2026-07-04_displacement.png"
+  },
+  {
+    "date": "2026-07-11",
+    "pairLabel": "2026-07-11 〜 2026-07-18",
+    "status": "pending"
+  },
+  {
+    "date": "2026-07-25",
+    "pairLabel": "2026-07-25 〜 2026-08-01",
+    "status": "pending"
+  },
+  {
+    "date": "2026-08-08",
+    "pairLabel": "2026-08-08 〜 2026-08-15",
+    "status": "pending"
+  },
+  {
+    "date": "2026-08-22",
+    "pairLabel": "2026-08-22 〜 2026-08-29",
+    "status": "pending"
+  },
+  {
+    "date": "2026-09-05",
+    "pairLabel": "2026-09-05 〜 2026-09-12",
+    "status": "pending"
+  }
+]
