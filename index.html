@@ -3,38 +3,87 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sakura-SAR ダッシュボード（試作）</title>
+<title>桜島観光防災ダッシュボード（試作）</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="app-header">
-    <h1>Sakura-SAR<span class="subtitle">桜島 観光防災ダッシュボード（試作）</span></h1>
-    <button id="darkModeToggle" class="toggle-btn" aria-label="ダークモード切替">🌙 ダークモード</button>
+    <div class="brand">
+      <span class="brand-icon">&#9968;</span>
+      <div>
+        <h1>桜島観光防災ダッシュボード</h1>
+        <p class="subtitle">Sakura-SAR・InSAR変動モニタリング（プロトタイプ）</p>
+      </div>
+    </div>
+    <div class="mode-switch" role="group" aria-label="表示モード切替">
+      <button id="lightModeBtn" class="mode-btn selected">&#9728; ホワイト</button>
+      <button id="darkModeBtn" class="mode-btn">&#9789; ダーク</button>
+    </div>
   </header>
 
   <div class="banner">
-    ※ これはプロトタイプです。表示されている変動画像・数値はダミーデータです。
+    ※ これはプロトタイプです。表示されている変動画像・数値・座標はダミー／仮のデータです。
   </div>
 
   <main class="app-main">
+    <aside class="control-panel">
+      <section class="control-block">
+        <h2>解析日を選択</h2>
+        <p class="control-hint">未解析の期間は「準備中」と表示されます</p>
+        <div class="date-selector" id="dateSelector"></div>
+      </section>
+
+      <section class="control-block">
+        <h2>表示レイヤー</h2>
+        <label class="layer-toggle"><input type="checkbox" id="layerInsar" checked> 地盤変動（InSAR）</label>
+        <label class="layer-toggle"><input type="checkbox" id="layerPort" checked> 避難港</label>
+        <label class="layer-toggle"><input type="checkbox" id="layerHeritage" checked> 文化財</label>
+      </section>
+
+      <section class="control-block">
+        <h2>対象データ</h2>
+        <dl class="meta-list">
+          <div><dt>観測衛星</dt><dd>Sentinel-1（Cバンド）</dd></div>
+          <div><dt>空間分解能</dt><dd>約90m</dd></div>
+        </dl>
+        <p class="control-hint">局所インフラの変動検知は今後改善予定です</p>
+      </section>
+    </aside>
+
     <section class="map-panel">
       <div id="map"></div>
+      <div class="legend">
+        <span class="legend-label">沈降 -20mm</span>
+        <span class="legend-bar"></span>
+        <span class="legend-label">隆起 +20mm</span>
+      </div>
+      <p class="map-caption" id="mapCaption">日付を選択してください</p>
     </section>
 
-    <section class="info-panel">
-      <div class="date-selector" id="dateSelector">
-        <!-- JSで生成 -->
+    <section class="summary-panel">
+      <div class="summary-header">
+        <h2>変動サマリー</h2>
+        <div class="badges">
+          <span id="alertBadge" class="badge badge-neutral">-</span>
+          <span id="confidenceBadge" class="badge badge-neutral">-</span>
+        </div>
       </div>
 
-      <div class="result-card">
-        <div class="result-header">
-          <h2 id="resultTitle">解析結果</h2>
-          <span id="confidenceBadge" class="badge">-</span>
-        </div>
-        <img id="resultImage" src="" alt="InSAR変動可視化画像" class="result-image">
-        <p id="resultSummary" class="result-summary">日付を選択してください。</p>
+      <div id="statsList" class="stats-list"></div>
+
+      <div class="trend-block">
+        <h3>変動トレンド（過去の観測）</h3>
+        <div id="trendChart" class="trend-chart"></div>
       </div>
+
+      <p id="resultSummary" class="result-summary">日付を選択してください。</p>
+
+      <div class="action-row">
+        <button id="reportBtn" class="btn btn-disabled" disabled title="このプロトタイプでは非対応です">レポート出力</button>
+        <button id="shareBtn" class="btn btn-primary">共有する</button>
+      </div>
+      <p id="shareStatus" class="share-status" aria-live="polite"></p>
     </section>
   </main>
 

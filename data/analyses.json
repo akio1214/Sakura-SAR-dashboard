@@ -5,8 +5,16 @@
     "status": "done",
     "coherenceLevel": "medium",
     "coherenceValue": 0.55,
+    "alertLevel": "notice",
+    "alertText": "サンプル: 桜島 南岳付近で変動を検知（ダミー）",
+    "stats": [
+      { "icon": "up", "value": "約12mm 隆起", "desc": "桜島 南岳付近で観測（ダミー値）" },
+      { "icon": "expand", "value": "約8mm 拡大", "desc": "火口周辺の開口を検知（ダミー値）" }
+    ],
+    "trendValueMm": 12,
     "summary": "サンプルデータです。実際の変動量要約はSNAP解析後に手動で反映します。",
-    "imageUrl": "data/images/2026-06-27_2026-07-04_displacement.png"
+    "imageUrl": "data/images/2026-06-27_2026-07-04_displacement.png",
+    "imageBounds": [[31.54, 130.60], [31.63, 130.72]]
   },
   {
     "date": "2026-07-11",
