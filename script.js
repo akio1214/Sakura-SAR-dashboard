@@ -8,10 +8,10 @@ const osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
   maxZoom: 18
 }).addTo(map);
 
-// 代表ピン（座標は要確認・仮値。公開前にGoogleマップ等で実測値を確認してください）
+// 代表ピン（実測座標、2026-08-09確認済み）
 const pinDefs = [
-  { name: '桜島港フェリーターミナル（避難港の例・座標要確認）', lat: 31.5965, lng: 130.5628, layer: 'port' },
-  { name: '黒神埋没鳥居（文化財の例・座標未確定）', lat: 31.588, lng: 130.72, layer: 'heritage' }
+  { name: '桜島港フェリーターミナル（避難港の例）', lat: 31.5964541, lng: 130.5628203, layer: 'port' },
+  { name: '黒神埋没鳥居（文化財の例）', lat: 31.5845576, lng: 130.7062570, layer: 'heritage' }
 ];
 
 const portMarkers = L.layerGroup();

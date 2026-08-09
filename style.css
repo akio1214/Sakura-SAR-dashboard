@@ -203,7 +203,6 @@ body {
   color: var(--text);
 }
 .btn-primary { background: var(--accent); color: var(--accent-contrast); border-color: var(--accent); }
-.btn-disabled { opacity: 0.5; cursor: not-allowed; }
 
 .share-status { font-size: 0.72rem; color: var(--accent); min-height: 1em; margin-top: 6px; }
 
